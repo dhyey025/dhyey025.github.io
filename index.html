@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhyey Patel — Lecturer in Computing, AI &amp; Robotics</title>
+<meta name="description" content="Dhyey Patel — Lecturer in Computing, Engineering, AI & Cybersecurity. MSc AI with Robotics. Curriculum design, STEM education, lab management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#faf7f0;
+    --navy-900:#f1ece0;
+    --navy-800:#e8e1d0;
+    --blue-700:#1d2c4f;
+    --blue-600:#27396a;
+    --gold-500:#9c7a1f;
+    --gold-300:#b8922a;
+    --gold-100:#dec888;
+    --ivory:#16213a;
+    --ivory-dim:#5b6478;
+    --line:rgba(22,33,58,0.13);
+    --serif:'Fraunces', serif;
+    --sans:'Inter', sans-serif;
+    --mono:'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-950);
+    color:var(--ivory);
+    font-family:var(--sans);
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold-500);color:var(--navy-950);}
+
+  /* scrollbar */
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-track{background:var(--navy-950);}
+  ::-webkit-scrollbar-thumb{background:var(--blue-600);border-radius:4px;}
+
+  a{color:inherit;text-decoration:none;}
+  :focus-visible{outline:2px solid var(--gold-300);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 5vw;
+    background:linear-gradient(180deg, rgba(250,247,240,0.94) 0%, rgba(250,247,240,0) 100%);
+    backdrop-filter:blur(2px);
+  }
+  .nav-mark{
+    font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:0.04em;
+    color:var(--gold-300);
+  }
+  .nav-links{display:flex;gap:2.2rem;font-family:var(--mono);font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;}
+  .nav-links a{color:var(--ivory-dim);position:relative;padding-bottom:4px;transition:color .25s;}
+  .nav-links a:hover{color:var(--gold-300);}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold-300);transition:width .3s;}
+  .nav-links a:hover::after{width:100%;}
+  @media(max-width:760px){.nav-links{display:none;}}
+
+  section{
+    min-height:100vh;
+    width:100%;
+    position:relative;
+    padding:0 5vw;
+  }
+
+  /* ---------- HERO ---------- */
+  #hero{
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  #hero canvas{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-vignette{
+    position:absolute;inset:0;
+    background:radial-gradient(ellipse at center, rgba(250,247,240,0) 0%, rgba(250,247,240,0.35) 65%, rgba(250,247,240,0.94) 100%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:2;text-align:center;max-width:920px;
+    animation:rise 1.4s cubic-bezier(.16,1,.3,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+  .eyebrow{
+    font-family:var(--mono);font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold-300);margin-bottom:1.6rem;display:inline-block;
+    border:1px solid var(--line);padding:7px 18px;border-radius:999px;
+    background:rgba(156,122,31,0.08);
+  }
+  h1.hero-name{
+    font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.6rem, 7vw, 5.6rem);
+    line-height:1.02;letter-spacing:-0.01em;
+    color:var(--ivory);
+  }
+  h1.hero-name em{font-style:italic;color:var(--gold-300);font-weight:500;}
+  .hero-role{
+    margin-top:1.6rem;font-size:clamp(1rem,1.7vw,1.25rem);
+    color:var(--ivory-dim);font-weight:300;max-width:680px;margin-left:auto;margin-right:auto;
+    line-height:1.6;
+  }
+  .hero-cta{
+    margin-top:2.6rem;display:flex;gap:1.1rem;justify-content:center;flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;
+    padding:14px 30px;border-radius:2px;cursor:pointer;transition:all .3s;
+    border:1px solid var(--gold-500);
+  }
+  .btn-solid{background:var(--gold-300);color:var(--navy-950);font-weight:600;}
+  .btn-solid:hover{background:var(--gold-100);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--gold-300);}
+  .btn-ghost:hover{background:rgba(156,122,31,0.1);transform:translateY(-2px);}
+  .scroll-cue{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--ivory-dim);display:flex;flex-direction:column;align-items:center;gap:10px;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+  .scroll-cue .stem{width:1px;height:34px;background:linear-gradient(var(--gold-300),transparent);}
+  .hero-stats{
+    margin-top:3.4rem;display:flex;gap:0;justify-content:center;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:1.8rem;
+  }
+  .hero-stat{
+    padding:0 2.2rem;border-left:1px solid var(--line);text-align:center;
+  }
+  .hero-stat:first-child{border-left:none;}
+  .hero-stat-num{
+    display:block;font-family:var(--serif);font-weight:600;font-size:2.1rem;color:var(--gold-500);
+  }
+  .hero-stat-label{
+    display:block;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.04em;
+    color:var(--ivory-dim);margin-top:0.3rem;max-width:140px;
+  }
+  @media(max-width:560px){.hero-stat{padding:0 1.1rem;}.hero-stat-num{font-size:1.6rem;}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{
+    display:flex;align-items:baseline;gap:1.2rem;margin-bottom:3.2rem;padding-top:7.5rem;
+  }
+  .section-num{font-family:var(--mono);color:var(--gold-500);font-size:0.85rem;letter-spacing:0.08em;}
+  .section-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,3rem);}
+  .section-line{flex:1;height:1px;background:var(--line);}
+
+  /* ---------- ABOUT ---------- */
+  #about{
+    background:linear-gradient(180deg, var(--navy-950), var(--navy-900));
+    border-bottom:1px solid var(--line);
+  }
+  .about-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:4.5rem;padding-bottom:6rem;
+  }
+  .about-text p{
+    font-size:1.08rem;line-height:1.85;color:var(--ivory-dim);margin-bottom:1.4rem;
+    font-weight:300;
+  }
+  .about-text strong{color:var(--ivory);font-weight:500;}
+  .strengths{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);}
+  .strength-row{
+    padding:1.1rem 0;border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;
+    font-family:var(--mono);font-size:0.85rem;color:var(--ivory-dim);
+    transition:padding-left .3s, color .3s;
+  }
+  .strength-row:hover{padding-left:10px;color:var(--gold-300);border-color:var(--gold-500);}
+  .strength-row span:first-child{color:var(--ivory);}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:2.5rem;}}
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  #experience{background:var(--navy-900);border-bottom:1px solid var(--line);}
+  .timeline{padding-bottom:6rem;}
+  .job{
+    position:relative;padding:2.2rem 2.4rem 2.2rem 2.6rem;
+    border-left:1px solid var(--line);margin-left:6px;margin-bottom:1.6rem;
+    background:rgba(255,255,255,0.55);
+    border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    border-radius:0 10px 10px 0;
+    box-shadow:0 1px 2px rgba(22,33,58,0.04);
+    transition:box-shadow .35s ease, transform .35s ease, border-color .35s ease;
+  }
+  .job:hover{
+    box-shadow:0 18px 40px -18px rgba(22,33,58,0.22);
+    transform:translateY(-3px);
+    border-color:rgba(156,122,31,0.35);
+  }
+  .job::before{
+    content:'';position:absolute;left:-6px;top:2.7rem;width:11px;height:11px;border-radius:50%;
+    background:var(--navy-950);border:2px solid var(--gold-500);
+  }
+  .job-meta{
+    display:flex;flex-wrap:wrap;gap:0.5rem 1rem;align-items:baseline;margin-bottom:0.5rem;
+  }
+  .job-dates{font-family:var(--mono);font-size:0.76rem;color:var(--gold-300);letter-spacing:0.04em;}
+  .job-title{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ivory);}
+  .job-org{font-size:0.95rem;color:var(--ivory-dim);margin-bottom:1rem;font-weight:300;}
+  .job ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1rem;}
+  .job ul li{
+    font-size:0.96rem;line-height:1.6;color:var(--ivory-dim);font-weight:300;
+    padding-left:1.2rem;position:relative;
+  }
+  .job ul li::before{content:'—';position:absolute;left:0;color:var(--gold-500);}
+  .job ul li strong{color:var(--ivory);font-weight:600;}
+  .job-skills{display:flex;flex-wrap:wrap;gap:0.5rem;}
+  .tag{
+    font-family:var(--mono);font-size:0.7rem;padding:4px 11px;border:1px solid var(--line);
+    border-radius:999px;color:var(--ivory-dim);
+  }
+  .job.collapsed ul{display:none;}
+  .expand-btn{
+    background:none;border:none;font-family:var(--mono);font-size:0.74rem;color:var(--gold-300);
+    cursor:pointer;letter-spacing:0.05em;margin-bottom:1rem;padding:0;text-transform:uppercase;
+  }
+  .expand-btn:hover{color:var(--gold-100);}
+
+  /* ---------- EDUCATION ---------- */
+  #education{background:linear-gradient(180deg, var(--navy-900), var(--navy-950));border-bottom:1px solid var(--line);}
+  .edu-grid{padding-bottom:6rem;display:flex;flex-direction:column;gap:0;}
+  .edu-item{
+    display:grid;grid-template-columns:140px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);
+  }
+  .edu-year{font-family:var(--mono);color:var(--gold-300);font-size:0.85rem;}
+  .edu-degree{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.3rem;}
+  .edu-school{color:var(--ivory-dim);font-size:0.92rem;margin-bottom:0.6rem;font-weight:300;}
+  .edu-detail{color:var(--ivory-dim);font-size:0.9rem;line-height:1.6;font-weight:300;font-style:italic;}
+  @media(max-width:660px){.edu-item{grid-template-columns:1fr;gap:0.4rem;}}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  #certifications{background:var(--navy-900);border-bottom:1px solid var(--line);}
+  .cert-grid{display:flex;flex-direction:column;margin-bottom:6rem;}
+  .cert-row{
+    display:grid;grid-template-columns:1fr auto auto;gap:1.5rem;align-items:center;
+    padding:1.4rem 1.2rem;border-bottom:1px solid var(--line);transition:background .3s, padding-left .3s;
+  }
+  .cert-row:hover{background:rgba(156,122,31,0.06);padding-left:1.6rem;}
+  .cert-row:first-child{border-top:1px solid var(--line);}
+  .cert-name{font-family:var(--serif);font-size:1.15rem;font-weight:600;}
+  .cert-issuer{font-family:var(--mono);font-size:0.78rem;color:var(--gold-300);letter-spacing:0.03em;}
+  .cert-year{font-family:var(--mono);font-size:0.78rem;color:var(--ivory-dim);}
+  @media(max-width:660px){.cert-row{grid-template-columns:1fr;gap:0.3rem;}}
+
+  /* ---------- SKILLS ---------- */
+  #skills{background:var(--navy-950);border-bottom:1px solid var(--line);}
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;
+    background:var(--line);border:1px solid var(--line);margin-bottom:6rem;
+  }
+  .skill-card{background:var(--navy-950);padding:2rem 1.8rem;transition:background .3s, box-shadow .3s, transform .3s;}
+  .skill-card:hover{background:#ffffff;box-shadow:0 18px 36px -20px rgba(22,33,58,0.25);transform:translateY(-2px);}
+  .skill-cat{
+    font-family:var(--mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--gold-300);margin-bottom:1rem;
+  }
+  .skill-list{display:flex;flex-wrap:wrap;gap:0.45rem;}
+  .skill-list span{
+    font-size:0.82rem;color:var(--ivory-dim);background:rgba(22,33,58,0.04);
+    padding:5px 10px;border-radius:3px;border:1px solid rgba(22,33,58,0.08);
+  }
+
+  /* ---------- CONTACT ---------- */
+  #contact{
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    background:var(--navy-900);position:relative;overflow:hidden;
+  }
+  #contact::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 100%, rgba(156,122,31,0.1), transparent 60%);
+  }
+  .contact-inner{position:relative;z-index:1;max-width:700px;}
+  .contact-eyebrow{font-family:var(--mono);font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-300);margin-bottom:1.4rem;}
+  .contact-title{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.4rem);margin-bottom:1.6rem;line-height:1.1;}
+  .contact-sub{color:var(--ivory-dim);font-size:1.05rem;margin-bottom:2.6rem;font-weight:300;line-height:1.7;}
+  .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;}
+  footer{
+    text-align:center;padding:2rem 5vw;font-family:var(--mono);font-size:0.72rem;
+    color:var(--ivory-dim);border-top:1px solid var(--line);background:var(--navy-900);
+  }
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media(prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-mark">D. PATEL</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="net"></canvas>
+  <div class="hero-vignette"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Lecturer · Computing, AI &amp; Robotics</span>
+    <h1 class="hero-name">Patel Dhyey<br><em>Hirenkumar</em></h1>
+    <p class="hero-role">MSc Artificial Intelligence with Robotics · BEng Instrumentation &amp; Control Engineering — building curricula and machines with equal precision, from neural networks to PCB traces.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-solid">Get in touch</a>
+      <a href="#experience" class="btn btn-ghost">View experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-label">Lecturing &amp; technical roles</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Engineering qualifications</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">20+</span><span class="hero-stat-label">Tools &amp; platforms taught</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>A technically expert, learner-focused Lecturer in Computing, Engineering and AI, with proven UK Further Education and Higher Education teaching experience across <strong>Networking, Cybersecurity, Cloud Computing, Robotics, Electronics, and Artificial Intelligence</strong>.</p>
+      <p>Holds an <strong>MSc in Artificial Intelligence with Robotics</strong> (London Metropolitan University, 2025) and a <strong>BEng in Instrumentation &amp; Control Engineering</strong>, combining academic depth with hands-on industry practice in embedded systems, machine learning model development, PCB design, and network security.</p>
+      <p>Consistently designs and delivers Pearson BTEC HND Level 4/5 curricula, integrates industry-standard ILT tools (Cisco Packet Tracer, Wireshark, TensorFlow, VMware), and embeds inclusive, learner-centred pedagogy through Universal Design for Learning and SEN/autism-adapted instruction.</p>
+      <p>A research-active practitioner who brings live engineering and AI projects directly into the classroom — with a strong record of meeting retention, achievement and success targets while supporting non-traditional and widening-participation learners.</p>
+    </div>
+    <div class="strengths reveal">
+      <div class="strength-row"><span>Curriculum Design</span><span>&amp; Validation</span></div>
+      <div class="strength-row"><span>Cybersecurity</span><span>&amp; Networking</span></div>
+      <div class="strength-row"><span>AI / ML</span><span>&amp; Robotics</span></div>
+      <div class="strength-row"><span>Electronics</span><span>&amp; PCB Engineering</span></div>
+      <div class="strength-row"><span>Lab Setup</span><span>&amp; Equipment Mgmt</span></div>
+      <div class="strength-row"><span>Inclusive Teaching</span><span>&amp; SEN Support</span></div>
+      <div class="strength-row"><span>Assessment</span><span>&amp; Quality Assurance</span></div>
+      <div class="strength-row"><span>Industry Liaison</span><span>Academic Partners</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid reveal">
+    <div class="edu-item">
+      <span class="edu-year">2024–25</span>
+      <div>
+        <div class="edu-degree">MSc Artificial Intelligence with Robotics</div>
+        <div class="edu-school">London Metropolitan University, UK</div>
+        <div class="edu-detail">Dissertation: UniNaviSys — Autistic-inclusive university navigation system using sensor fusion and adaptive AI pathfinding.</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2020–23</span>
+      <div>
+        <div class="edu-degree">BEng Instrumentation &amp; Control Engineering</div>
+        <div class="edu-school">Gujarat Technological University, India</div>
+        <div class="edu-detail">Final Project: AI Mobile Application — obstacle-avoiding robot using ultrasonic sensor arrays and real-time control algorithms.</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <span class="edu-year">2017–20</span>
+      <div>
+        <div class="edu-degree">Diploma of Engineering in Instrumentation &amp; Control</div>
+        <div class="edu-school">Gujarat Technological University, India</div>
+        <div class="edu-detail">Project: SMS IC — Smart Motion Sensing with Image Capturing using embedded microcontrollers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid" id="certGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-eyebrow">Let's talk</div>
+    <h2 class="contact-title">Open to lecturing, curriculum<br>and research collaborations.</h2>
+    <p class="contact-sub">Based in London, United Kingdom. Available for HE/FE teaching roles, STEM curriculum design, and applied AI/robotics research partnerships.</p>
+    <div class="contact-links">
+      <a href="mailto:pateldhyey1879@gmail.com" class="btn btn-solid">pateldhyey1879@gmail.com</a>
+      <a href="tel:+4407469634797" class="btn btn-ghost">+44 07469 634797</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Patel Dhyey Hirenkumar — London, United Kingdom</footer>
+
+<script>
+/* ---------------- Neural network hero canvas ---------------- */
+(function(){
+  const canvas = document.getElementById('net');
+  const ctx = canvas.getContext('2d');
+  let w, h, nodes = [];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    w = canvas.width = canvas.offsetWidth * devicePixelRatio;
+    h = canvas.height = canvas.offsetHeight * devicePixelRatio;
+  }
+  function initNodes(){
+    const count = Math.min(140, Math.floor((canvas.offsetWidth*canvas.offsetHeight)/9000));
+    nodes = [];
+    for(let i=0;i<count;i++){
+      nodes.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        vx: (Math.random()-0.5)*0.3*devicePixelRatio,
+        vy: (Math.random()-0.5)*0.3*devicePixelRatio,
+        r: (Math.random()*2.6+1.4)*devicePixelRatio,
+        pulse: Math.random()*Math.PI*2
+      });
+    }
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    const maxDist = 230*devicePixelRatio;
+
+    for(let i=0;i<nodes.length;i++){
+      const n = nodes[i];
+      if(!reduced){
+        n.x += n.vx; n.y += n.vy;
+        if(n.x<0||n.x>w) n.vx*=-1;
+        if(n.y<0||n.y>h) n.vy*=-1;
+        n.pulse += 0.02;
+      }
+    }
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<maxDist){
+          const op = (1-dist/maxDist)*0.45;
+          ctx.strokeStyle = `rgba(29,44,79,${op})`;
+          ctx.lineWidth = 0.8*devicePixelRatio;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      const glow = reduced ? 1 : (Math.sin(n.pulse)*0.4+0.7);
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r*2.4*glow,0,Math.PI*2);
+      ctx.fillStyle = `rgba(156,122,31,${0.12*glow})`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(n.x,n.y,n.r*glow,0,Math.PI*2);
+      ctx.fillStyle = `rgba(29,44,79,${0.8*glow})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('resize', ()=>{ resize(); initNodes(); });
+  resize(); initNodes(); step();
+})();
+
+/* ---------------- Experience data + render ---------------- */
+const jobs = [
+  {
+    dates:"Nov 2025 – Present",
+    title:"Lecturer in Digital Technologies Engineering",
+    org:"Mont Rose College, London, UK · HND-DTE, Pearson BTEC",
+    bullets:[
+      "Planned and delivered rigorous <strong>HE-level sessions for Level 4 & 5 learners</strong> across DTE modules — Networking Infrastructure, Cybersecurity Principles, Cloud Networking and Data Analytics — <strong>consistently meeting retention, achievement and success targets</strong> set by Pearson HE frameworks.",
+      "Delivered <strong>Cybersecurity module content</strong> covering OSI/TCP-IP attack-surface analysis, firewall rule-set design, intrusion detection/prevention concepts (IDS/IPS), VPN tunnelling, cryptographic protocols (TLS, RSA, AES) and <strong>OWASP Top 10</strong> vulnerability frameworks, using <strong>Wireshark</strong> for live packet-capture labs and <strong>Kali Linux</strong> for introductory penetration-testing demonstrations.",
+      "Taught <strong>Cloud Networking and virtualisation</strong> using <strong>VMware ESXi/Workstation, VirtualBox, AWS and Microsoft Azure</strong> fundamentals, covering containerisation concepts and software-defined networking (SDN), with learners simulating enterprise topologies in <strong>Cisco Packet Tracer and GNS3</strong>, including Cisco IOS command-line configuration of routers and switches.",
+      "Delivered <strong>Data Analytics sessions</strong> using <strong>Python (Pandas, NumPy, Matplotlib, Seaborn)</strong> and <strong>Microsoft Power BI</strong>, covering statistical modelling, regression analysis and exploratory data analysis — guiding learners from raw dataset cleaning through to dashboard-driven insight reporting.",
+      "Embedded industry-recognised ILT and lab software throughout delivery, including <strong>Cisco Packet Tracer, Wireshark, VMware/VirtualBox, Power BI, GNS3</strong> and Microsoft Office 365/SharePoint for resource distribution and collaborative coursework.",
+      "Applied <strong>differentiated instruction and Universal Design for Learning (UDL)</strong> principles to support diverse cohorts, including <strong>SEN and autistic learners</strong>, adapting lab materials, assessment formats and pacing to individual learning profiles.",
+      "Designed and implemented <strong>full formative and summative assessment schedules</strong> — including practical lab assignments, network design projects, cybersecurity audit tasks and peer-review exercises — fully aligned to <strong>Pearson HE Level 4/5 frameworks</strong>, with marking conducted through the College's VLE/Moodle platform.",
+      "Provided constructive, timely written and verbal feedback, maintained accurate progress and attendance records via the college MIS system, and introduced <strong>early-intervention strategies</strong> to maximise individual achievement and programme completion rates.",
+      "<strong>Led the design, procurement, cabling and deployment of the College's Robotics, IT & Networking Lab</strong> — project-managing specification, hardware/switch/router selection, structured cabling and staff induction — and collaborated with the Course Approval Committee and <strong>partner universities (Staffordshire, Buckinghamshire)</strong> to map HND-to-Level 6 degree progression pathways."
+    ],
+    skills:["HE Level 4/5 Curriculum","Cybersecurity (OWASP, Kali, Wireshark)","Cloud & Virtualisation (VMware, AWS/Azure)","Cisco Packet Tracer & GNS3","Data Analytics (Python, Power BI)","VLE/Moodle","ILT Integration","Lab Management"]
+  },
+  {
+    dates:"Jul 2025 – Aug 2025",
+    title:"Lecturer in Engineering — Robotics, AI & Software",
+    org:"Oxford Royal Academy at Imperial College London, UK · Summer School",
+    bullets:[
+      "Designed and delivered a <strong>high-intensity, multi-discipline curriculum for academically gifted learners</strong> spanning Robotics Systems Design, AI & Machine Learning, Software Engineering, Electronics, Programming and Cybersecurity, ensuring content remained industry-current and aligned with real engineering practice.",
+      "Delivered in-depth <strong>AI & Machine Learning instruction</strong>: supervised and unsupervised learning theory, neural network architecture (feedforward, convolutional), model training pipelines using <strong>TensorFlow, Keras and Scikit-learn</strong>, bias/variance trade-off analysis, and practical model evaluation using confusion matrices, ROC curves and F1 scoring.",
+      "Taught <strong>Software Engineering fundamentals</strong> including version control with <strong>Git/GitHub</strong>, object-oriented Python development, API integration and agile project workflows, helping learners connect AI model development to deployable software practice.",
+      "Delivered <strong>autonomous robotics sessions</strong> covering sensor fusion (ultrasonic, infrared, IMU), motion control algorithms and real-time decision-making loops on <strong>Arduino</strong> (Arduino IDE) and <strong>Raspberry Pi</strong> (Python, Raspbian/Raspberry Pi OS), integrating <strong>OpenCV-based machine vision</strong> for object detection and line-following applications.",
+      "Addressed <strong>cybersecurity fundamentals</strong>: threat modelling, social engineering awareness, secure software development practices, network vulnerability scanning and introductory ethical hacking, contextualised through CTF-style challenge exercises using <strong>Kali Linux</strong> tools.",
+      "Ran <strong>electronics practical sessions</strong> using oscilloscopes, multimeters and function generators to teach signal analysis, PCB fault diagnosis, circuit testing and embedded sensor integration, guiding learners through PCB layout using <strong>EasyEDA and KiCad</strong> from schematic capture to Gerber file generation.",
+      "Led <strong>3D-printing and CAD lab work</strong> using AutoCAD and FDM 3D printers, where learners designed and prototyped custom robotic chassis, sensor mounts and component enclosures through the full design-to-build pipeline.",
+      "Provided <strong>one-to-one academic mentoring</strong> in AI algorithm design (neural network tuning, hyperparameter optimisation) and electronics troubleshooting (PCB layout analysis, signal integrity), delivering rigorous project feedback within a compressed programme window.",
+      "Adapted delivery pacing and instructional scaffolding rapidly to accommodate varied prior knowledge within the cohort, collaborated with the programme academic team on timetabling and quality assurance, and <strong>contributed to final showcase judging criteria and learner presentation coaching</strong>."
+    ],
+    skills:["AI/ML (TensorFlow, Keras, Scikit-learn)","Software Engineering (Git/GitHub, Python OOP)","Autonomous Robotics (Arduino, Raspberry Pi, OpenCV)","Cybersecurity (Kali Linux)","PCB Design (EasyEDA, KiCad)","AutoCAD & 3D Printing","Differentiated Instruction"]
+  },
+  {
+    dates:"Jan 2024 – Jan 2025",
+    title:"Lecturer — Coding, Mathematics & Creative Media",
+    org:"London Learning Consortium College, London, UK · City & Guilds / NCFE",
+    bullets:[
+      "Designed and delivered comprehensive <strong>Level 2 & 3 curricula in Computing, Coding and Creative Media</strong> for learners aged 16–24, fully aligned to <strong>City & Guilds and NCFE</strong> awarding body standards and mapped to functional skills requirements.",
+      "Taught <strong>Python programming in depth</strong> — object-oriented programming, data structures, file I/O, exception handling and REST API integration — using <strong>VS Code, PyCharm and Jupyter Notebook</strong> as development environments.",
+      "Delivered <strong>front-end and back-end web development</strong> instruction covering <strong>HTML5, CSS3 and JavaScript</strong> (DOM manipulation, event handling), supported by browser developer tools for live debugging and responsive-design testing.",
+      "Introduced computational thinking and algorithmic logic through block-based programming environments (Scratch, MIT App Inventor) before progressing learners to text-based coding, building a <strong>structured pathway from novice to intermediate programmer</strong>.",
+      "Delivered live coding demonstrations and practical lab sessions, including Python scripting for data manipulation and project-based challenges integrating front-end and back-end concepts to build learners' understanding of the <strong>full software development lifecycle</strong>.",
+      "Specialised in <strong>SEN and autism-adapted instruction</strong>, working closely with Learning Support Assistants (LSAs) to implement <strong>EHCP recommendations</strong>, create accessible digital resources and apply sensory-aware classroom environments tailored to individual cognitive profiles.",
+      "Maintained structured, positive classroom leadership across diverse and at times behaviourally challenging cohorts, applying <strong>de-escalation strategies and restorative approaches</strong> to sustain a productive learning environment.",
+      "Conducted formative and summative assessments aligned to awarding body criteria, maintained detailed digital progress records via the college's MIS/VLE system, and provided tailored written and verbal feedback to <strong>accelerate individual achievement and support grade boundaries</strong>.",
+      "Built strong, trust-based relationships with learners — <strong>motivating disengaged students and building academic confidence</strong> in those with learning difficulties through consistent pastoral tutorials, one-to-one check-ins and referrals to enrichment services."
+    ],
+    skills:["Python (VS Code, PyCharm, Jupyter)","JavaScript","HTML/CSS","Scratch / App Inventor","SEN & Inclusive Practice","Differentiated Pedagogy","Formative Assessment","Pastoral Support","Behaviour Management"]
+  },
+  {
+    dates:"Jul 2024 – Aug 2024",
+    title:"Lecturer — Robotics & Artificial Intelligence",
+    org:"Mander Portman Woodward (MPW) College, Cambridge, UK · Summer School",
+    bullets:[
+      "Designed and delivered <strong>technically rigorous Electronics, Robotics and AI sessions for high-ability learners</strong>, simplifying complex engineering concepts through practical demonstrations, structured inquiry-based learning and scaffolded project challenges.",
+      "Delivered AI curriculum covering supervised classification (decision trees, SVMs, k-NN), unsupervised clustering (k-means), and <strong>neural network architecture and training</strong> using <strong>TensorFlow and PyTorch</strong>, bridging academic theory and engineering practice.",
+      "Connected AI theory to real-world application through case studies in <strong>computer vision</strong> (image classification, object detection with <strong>OpenCV</strong>) and natural language processing, helping learners understand industry deployment contexts.",
+      "Delivered robotics sessions using <strong>LEGO Mindstorms, VEX Robotics, Arduino and Raspberry Pi</strong> platforms — learners programmed autonomous navigation algorithms, implemented <strong>PID motor control loops</strong>, and integrated ultrasonic/IR sensors for real-time environment response.",
+      "Ran electronics practical work using oscilloscopes, multimeters and function generators for signal analysis, circuit testing and fault diagnosis, building learners' diagnostic confidence with live hardware.",
+      "Guided learners through <strong>end-to-end PCB design workflows</strong> using <strong>EasyEDA and KiCad</strong> (schematic capture → PCB layout → Gerber file generation → physical board review), giving a complete electronics manufacturing understanding.",
+      "Integrated <strong>3D printing and AutoCAD-based design</strong> into the curriculum — learners fabricated custom robotic chassis, sensor mounts and component housings using FDM printers, gaining genuine design-to-manufacture pipeline experience.",
+      "Embedded industry-standard AI tools (TensorFlow, PyTorch, Scikit-learn) into project assignments, enabling learners to <strong>build, train and evaluate models against real datasets</strong> within a compressed timeframe.",
+      "Mentored learners on individual and group robotics/AI projects — developing their technical skills, critical thinking and ability to <strong>present and defend engineering solutions to a panel</strong> — while collaborating with the wider programme team on lesson sequencing and quality assurance."
+    ],
+    skills:["AI/ML (TensorFlow, PyTorch, Scikit-learn, OpenCV)","Robotics (Arduino, Raspberry Pi, VEX, PID)","PCB Design (EasyEDA, KiCad)","AutoCAD & 3D Printing","Electronics Lab Delivery","Learner Mentoring"]
+  },
+  {
+    dates:"Sept 2024 – Nov 2025",
+    title:"Service Desk Analyst — IT Support",
+    org:"London Metropolitan University, London, UK",
+    bullets:[
+      "Provided <strong>first- and second-line IT support</strong> across Windows, macOS and Linux environments, diagnosing hardware, software and network faults using systematic analytical approaches and <strong>ITIL incident management</strong> practices.",
+      "Administered <strong>Active Directory, Microsoft 365 and Exchange Online</strong>, managing user accounts, group policies, distribution lists and security/compliance settings across the university's enterprise environment.",
+      "Logged, prioritised and resolved support tickets via <strong>ServiceNow</strong>, maintaining detailed incident documentation and <strong>meeting SLA targets</strong> across a high-volume, multi-campus user base.",
+      "Troubleshot and supported <strong>LAN, Wi-Fi, VPN and firewall connectivity</strong> issues, gaining deep applied knowledge of network protocols, switch/router configuration and enterprise wireless infrastructure.",
+      "Delivered remote assistance and desktop support using <strong>TeamViewer, AnyDesk and Remote Desktop Protocol (RDP)</strong>, and supported device imaging/deployment workflows using <strong>SCCM</strong> (System Center Configuration Manager).",
+      "Contributed to <strong>process automation projects</strong> using <strong>Microsoft Power Apps and Power Automate</strong>, identifying inefficiencies in manual workflows and designing low-code solutions to streamline service desk processes.",
+      "Supported <strong>Google Workspace administration</strong> alongside the Microsoft 365 estate, assisting with account provisioning, shared drive permissions and collaborative document management.",
+      "Applied <strong>data security and access-control best practice</strong> in day-to-day account administration, directly informing how cybersecurity and systems-administration content is now taught in a classroom setting.",
+      "Communicated complex technical concepts clearly and accessibly to non-technical staff and students, a skill directly transferable to explaining networking, security and systems topics in lectures and lab sessions."
+    ],
+    skills:["Network Administration (LAN/VPN/Firewall)","Active Directory","Microsoft 365/Exchange","ServiceNow","SCCM","ITIL/SLA Management","Power Apps/Power Automate","Remote Support Tools"]
+  },
+  {
+    dates:"Apr 2023 – Dec 2023",
+    title:"Lead Instructor — Robotics & Coding (Online)",
+    org:"BrightCHAMPS Education, India / Remote",
+    bullets:[
+      "Developed and delivered <strong>age-differentiated STEM curricula</strong> combining Electronics, Robotics, Coding, Mathematics and Technology for learners aged 6–16, tailoring content and delivery style to individual ability levels across 1:1 and small-group online sessions.",
+      "Incorporated electronics fundamentals using <strong>virtual simulation tools (Tinkercad Circuits, Wokwi)</strong>, teaching breadboard wiring, LED circuits, resistor calculations, oscillator design and basic signal concepts in an accessible digital lab environment.",
+      "Delivered personalised <strong>Python instruction</strong> (variables, loops, functions, basic OOP) and <strong>block-based programming using Scratch</strong>, employing gamified projects and creative problem-solving tasks to build computational thinking and algorithmic logic.",
+      "Introduced <strong>AutoCAD and 3D design concepts</strong> through Tinkercad 3D, enabling younger learners to design components and understand the design-to-manufacture pipeline from digital prototype to physical artefact.",
+      "Delivered all sessions via <strong>Zoom/online video conferencing platforms</strong> with screen-sharing and collaborative coding tools, maintaining engagement and instructional quality in a fully remote setting.",
+      "Created detailed lesson plans, diagnostic assessments and structured progress reports for each learner, <strong>tracking skill development across multi-month programme pathways</strong>.",
+      "Communicated professionally and regularly with parents and guardians regarding learner progress, behaviour and next-step recommendations, building <strong>strong family engagement and programme retention</strong>.",
+      "Managed full online class schedules across multiple time zones, coordinating with international learners and the wider instructional team to ensure consistent delivery quality."
+    ],
+    skills:["Online & Blended Delivery","Virtual Simulation (Tinkercad, Wokwi)","Python","Scratch / Block Programming","Personalised Learning","Curriculum Development","Parent Communication"]
+  },
+  {
+    dates:"Mar 2023 – Jan 2025",
+    title:"Founder, CEO & IT Analyst",
+    org:"Om Gaurvisutay Innovations Pvt. Ltd., India",
+    bullets:[
+      "<strong>Founded and led a technology-driven SME</strong> focused on IoT product development, scientific research and educational technology services, managing all aspects of business operations, strategy, team leadership and stakeholder relations.",
+      "Directed the <strong>full R&D lifecycle of NatureCare</strong>, an IoT-based environmental monitoring product — designing PCB schematics in <strong>EasyEDA</strong>, prototyping hardware with embedded sensors (temperature, humidity, particulate matter) and selecting appropriate microcontroller platforms.",
+      "Validated signal integrity and circuit performance using <strong>oscilloscopes and logic analysers</strong>, conducting bench testing and iterative hardware revisions before progressing to field installation.",
+      "Implemented <strong>real-time data transmission using the MQTT protocol</strong>, configuring publish/subscribe messaging between embedded devices and a central monitoring dashboard.",
+      "Integrated <strong>machine learning-based data analysis (Scikit-learn regression models)</strong> into the NatureCare platform to predict environmental trends from sensor time-series data, demonstrating applied AI in an industrial IoT context.",
+      "Initiated and scaled <strong>Ed-Tech programmes</strong> in partnership with schools and colleges, designing and delivering STEM workshops, robotics training sessions and IT learning programmes that directly informed subsequent lecturing practice.",
+      "<strong>Recruited, managed and mentored a cross-functional team of 10</strong> across project planning, research execution and technical delivery, establishing internal processes and reporting structures.",
+      "Negotiated client contracts and managed institutional relationships with educational partners and commercial stakeholders, handling pricing, scope and delivery timelines.",
+      "Oversaw business strategy, budgeting and operational decision-making as <strong>Founder/CEO</strong>, balancing technical R&D priorities against commercial sustainability."
+    ],
+    skills:["IoT Product Design","PCB Design & Prototyping","MQTT","Embedded Sensors","ML Integration (Scikit-learn)","Leadership & Team Management","Ed-Tech Programme Design","Entrepreneurship"]
+  },
+  {
+    dates:"Jan 2023 – Apr 2023",
+    title:"Researcher — Robotics",
+    org:"TechKrider Technologies, India",
+    bullets:[
+      "Conducted <strong>rigorous quality control assessments</strong> on robotics system designs, validating products against industry safety, performance and reliability standards through methodical electronic testing.",
+      "Used <strong>oscilloscopes, logic analysers and multimeters</strong> to verify signal behaviour, timing accuracy and circuit performance across prototype robotics hardware.",
+      "Designed and implemented <strong>computer vision systems for robotic targeting</strong>, developing camera-based object detection pipelines using <strong>OpenCV</strong>.",
+      "Integrated targeting algorithms with motion control mechanisms and <strong>validated system performance</strong> under varied lighting and environmental conditions.",
+      "Applied <strong>PCB design principles</strong> to develop hardware schematics and component layouts for the NatureCare automation product, managing the lifecycle from design through testing and sign-off.",
+      "Used <strong>AutoCAD-based mechanical drawing</strong> to produce accurate component and enclosure layouts supporting the hardware engineering process.",
+      "Engaged in applied <strong>R&D on emerging robotics technologies</strong>, including machine vision, autonomous control and sensor fusion, contributing technical insight to the wider engineering team.",
+      "Produced structured technical reports and presentations documenting test methodology, results and design recommendations for internal stakeholders.",
+      "Collaborated cross-functionally with hardware and software engineers to <strong>troubleshoot integration issues</strong> between embedded sensors, control software and mechanical components."
+    ],
+    skills:["Robotics R&D","Computer Vision (OpenCV)","Embedded Systems","Oscilloscopes & Logic Analysers","PCB Design","AutoCAD","Sensor Fusion","Technical Writing"]
+  }
+];
+
+const timeline = document.getElementById('timeline');
+jobs.forEach((job, idx) => {
+  const el = document.createElement('div');
+  el.className = 'job collapsed reveal';
+  el.innerHTML = `
+    <div class="job-meta">
+      <span class="job-dates">${job.dates}</span>
+    </div>
+    <div class="job-title">${job.title}</div>
+    <div class="job-org">${job.org}</div>
+    <button class="expand-btn" aria-expanded="false">+ Show details</button>
+    <ul>${job.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+    <div class="job-skills">${job.skills.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
+  `;
+  timeline.appendChild(el);
+  const btn = el.querySelector('.expand-btn');
+  btn.addEventListener('click', ()=>{
+    const collapsed = el.classList.toggle('collapsed');
+    btn.textContent = collapsed ? '+ Show details' : '– Hide details';
+    btn.setAttribute('aria-expanded', String(!collapsed));
+  });
+  if(idx===0){ el.classList.remove('collapsed'); btn.textContent='– Hide details'; btn.setAttribute('aria-expanded','true'); }
+});
+
+/* ---------------- Skills data + render ---------------- */
+const skillCats = [
+  {cat:"Programming Languages", items:["Python","C/C++","Java","JavaScript (Node.js)","SQL","MongoDB","R","Bash","MATLAB"]},
+  {cat:"AI & Machine Learning", items:["TensorFlow","PyTorch","Scikit-learn","Keras","Neural Networks (CNN, Feedforward)","Supervised/Unsupervised Learning","Hyperparameter Optimisation"]},
+  {cat:"Robotics & Embedded Systems", items:["Arduino","Raspberry Pi","LEGO Mindstorms","VEX Robotics","PID Control","Sensor Fusion","MQTT","Autonomous Navigation"]},
+  {cat:"Cybersecurity", items:["Wireshark","Firewall Rule Design","IDS/IPS","VPN","TLS/RSA/AES","OWASP Top 10","Ethical Hacking","Cisco Packet Tracer","Kali Linux"]},
+  {cat:"Networking & Cloud", items:["TCP/IP","OSI Model","VMware","VirtualBox","AWS/Azure","SDN","GNS3","Cisco IOS"]},
+  {cat:"Electronics & Lab Equipment", items:["Oscilloscopes","Multimeters","Function Generators","Logic Analysers","Signal Analysis","Fault Diagnosis"]},
+  {cat:"PCB & CAD Design", items:["EasyEDA","KiCad","AutoCAD","Gerber File Generation","Schematic Capture","Tinkercad","FDM 3D Printing"]},
+  {cat:"Data & Analytics", items:["Power BI","Pandas","NumPy","Matplotlib","Seaborn","Regression Analysis","EDA","Time-Series Analysis"]},
+  {cat:"Teaching & Pedagogy", items:["Curriculum Design","ILT Integration","UDL","SEN/Autism Support","Assessment","Pastoral Care","VLE/Moodle"]},
+  {cat:"IT Support Tools", items:["Active Directory","Microsoft 365","TeamViewer","AnyDesk","ServiceNow","Power Apps"]}
+];
+const skillsGrid = document.getElementById('skillsGrid');
+skillCats.forEach(c=>{
+  const card = document.createElement('div');
+  card.className = 'skill-card';
+  card.innerHTML = `<div class="skill-cat">${c.cat}</div><div class="skill-list">${c.items.map(i=>`<span>${i}</span>`).join('')}</div>`;
+  skillsGrid.appendChild(card);
+});
+
+/* ---------------- Certifications data + render ---------------- */
+const certs = [
+  {name:"AI Agent Fundamentals — Academy Accreditation", issuer:"Databricks", year:"2025"},
+  {name:"Cybersecurity Analyst Job Simulation", issuer:"Tata Group · via Forage", year:"2025"},
+  {name:"Cybersecurity Fundamentals Pathway", issuer:"TryHackMe", year:"2025"}
+];
+const certGrid = document.getElementById('certGrid');
+certs.forEach(c=>{
+  const row = document.createElement('div');
+  row.className = 'cert-row reveal';
+  row.innerHTML = `<span class="cert-name">${c.name}</span><span class="cert-issuer">${c.issuer}</span><span class="cert-year">${c.year}</span>`;
+  certGrid.appendChild(row);
+});
+
+/* ---------------- Scroll reveal ---------------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
