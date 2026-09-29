@@ -1,0 +1,18 @@
+services:
+  finmatch-api:
+    build:
+      context: .
+    image: finmatch-ai:local
+    ports:
+      - "8000:8000"
+    environment:
+      # Values can be overridden from the shell or a local (git-ignored) .env file.
+      FINMATCH_ENVIRONMENT: ${FINMATCH_ENVIRONMENT:-development}
+      FINMATCH_LOG_LEVEL: ${FINMATCH_LOG_LEVEL:-INFO}
+    # Hardening: immutable root filesystem and no privilege escalation.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
